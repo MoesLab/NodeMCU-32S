@@ -1,12 +1,7 @@
 /*********
-  Rui Santos
-  Complete project details at https://RandomNerdTutorials.com/esp32-mpu-6050-web-server/
-  
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files.
-  
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
+Moe Azizi, March 2021
+NodeMCU-32S a collection of advanced project packaged in one project
+include Async Web Server, SD Card functions 
 *********/
 
 #include <Arduino.h>
