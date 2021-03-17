@@ -1,9 +1,6 @@
 <!--
-  Rui Santos
-  Complete project details at https://RandomNerdTutorials.com/esp32-mpu-6050-web-server/
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files.
-  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Moe Azizi
+ICE SPARK test paltform index.html 
 -->
 
 <!DOCTYPE HTML>
@@ -14,6 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--<link rel="icon" href="data:,">-->
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="icon"  type="image/png" href="favicon.png">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/107/three.min.js"></script>
@@ -87,9 +85,9 @@
         <button id="resetY" onclick="resetPosition(this)">Y</button>
         <button id="resetZ" onclick="resetPosition(this)">Z</button>
         <p class="card-title">FILE CONTROL</p>
-        <button id="fRec" onclick="fileControl(this)">REC</button>
-        <button id="fEnd" onclick="fileControl(this)">END</button>
-        <button id="fRead" onclick="fileControl(this)">READ</button>
+        <button id="fRec" onclick="fileControls(this)">REC</button>
+        <button id="fEnd" onclick="fileControls(this)">END</button>
+        <button id="fRead" onclick="fileControls(this)">READ</button>
       </div>
     </div>
   </div>
@@ -97,11 +95,11 @@
     <div id="3Dcube"></div>
   </div>
   <div class="footnav">
-    <button id="btn1" onclick="resetPosition(this)">Mode 1</button>
-    <button id="btn2" onclick="resetPosition(this)">Mode 2</button>
-    <button id="btn3" onclick="resetPosition(this)">Mode 3</button>
-    <button id="btn4" onclick="resetPosition(this)">Mode 4</button>
-    <button id="btn5" onclick="resetPosition(this)">Mode 5</button>
+    <button id="btn1" onclick="modeControls(this)">Mode 1</button>
+    <button id="btn2" onclick="modeControls(this)">Mode 2</button>
+    <button id="btn3" onclick="modeControls(this)">Mode 3</button>
+    <button id="btn4" onclick="modeControls(this)">Mode 4</button>
+    <button id="btn5" onclick="modeControls(this)">Mode 5</button>
   </div>
 
   <script src="script.js"></script>

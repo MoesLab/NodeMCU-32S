@@ -18,7 +18,7 @@ function parentHeight(elem) {
 
 function init3D(){
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0xffffff);
+  scene.background = new THREE.Color(0xdbbadb);
 
   camera = new THREE.PerspectiveCamera(75, parentWidth(document.getElementById("3Dcube")) / parentHeight(document.getElementById("3Dcube")), 0.1, 1000);
 
@@ -112,6 +112,12 @@ function resetPosition(element){
   xhr.send();
 }
 function fileControls(element){
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "/"+element.id, true);
+  console.log(element.id);
+  xhr.send();
+}
+function modeControls(element){
   var xhr = new XMLHttpRequest();
   xhr.open("GET", "/"+element.id, true);
   console.log(element.id);
