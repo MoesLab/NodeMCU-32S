@@ -2,7 +2,7 @@
 Moe Azizi, March 2021
 NodeMCU-32S a collection of advanced project packaged in one project
 include Async Web Server, SD Card functions 
-drived from main orogin.cpp
+drived from main origin.cpp
 button REC, END,    ,and writing to SD was added
 *********/
 
@@ -21,8 +21,9 @@ button REC, END,    ,and writing to SD was added
 #include "SPI.h"
 
 // Replace with your network credentials
-const char *ssid = "Mehrdad";
-const char *password = "azadeh125";
+
+const char *ssid = "My SSID";
+const char *password = "My Password";
 
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
