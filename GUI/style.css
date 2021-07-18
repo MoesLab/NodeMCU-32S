@@ -74,7 +74,7 @@ padding-bottom: 5px;
   font-size: 1.2rem;
 }
 .cube-content{
-  width: 50%;
+  max-width: 800;
   display:block;
   /*background-color: #e906e9;
   background-color:  rgba(190, 133, 181, 0);*/
@@ -111,7 +111,7 @@ padding-bottom: 5px;
   width: 20px;
   border-radius: 4px;
 }
-#fRec, #fEnd, #fRead {
+#fRec, #fEnd, #fRead , #fAdd {
   border: none;
   color: #FFD43B;
   background-color: #e906e9;

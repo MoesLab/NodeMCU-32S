@@ -1,0 +1,48 @@
+<!--
+
+snippet to show how to add option from JSON  to select tag with JS in HTML
+
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>test2</title>
+</head>
+<body>
+    <input type="button" id="btnGenerate" value="Populate DropDownList" onclick="PopulateDropDownList()" />
+    <hr />
+
+    <select id="listFiles">
+    </select>
+    
+    <script type="text/javascript">
+        function PopulateDropDownList() {
+           //Build an array containing Customer records.
+            var files = [
+                { FileId: 1, Name: "log_456.txt", Country: "United States" },
+                { FileId: 2, Name: "log_1474.txt", Country: "India" },
+                { FileId: 3, Name: "log_007.txt", Country: "France" },
+                { FileId: 4, Name: "log_89745.txt", Country: "Russia" }
+            ];
+           
+            var ddlFiles = document.getElementById("listFiles");
+           
+            //Add the Options to the DropDownList.
+            //for (var i = 0, at = files.DATA[i], id = at[0], name = at[1]; i < files.DATA.length; i++)
+            for (var i = 0; i < files.length; i++) {
+                var option = document.createElement("OPTION");
+ 
+                //Set File Name in Text part.
+                option.innerHTML = files[i].Name;
+                //option.textContent = files[i].Name;
+                //Set File in Value part.
+                option.value = files[i].FileId;
+ 
+                //Add the Option element to DropDownList.
+                ddlFiles.options.add(option);
+                //listFiles.appendChild(option);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,9 +1,6 @@
 /*
-  Rui Santos
-  Complete project details at https://RandomNerdTutorials.com/esp32-mpu-6050-web-server/
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files.
-  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+  Moe Aizi
+  JS for NodeMCU-32S
 */
 
 let scene, camera, rendered, cube;
@@ -105,21 +102,46 @@ if (!!window.EventSource) {
   }, false);
 }
 
+source.addEventListener('filelist_reading', function(e) {
+  console.log("filelist_reading", e.data);
+  var ddlFiles = document.getElementById("filelist");
+  var option = document.createElement("OPTION");
+  option.innerHTML = e.data;
+  option.value = ddlFiles.options.length + 1;
+  ddlFiles.options.add(option);
+}, false);
+
 function resetPosition(element){
   var xhr = new XMLHttpRequest();
   xhr.open("GET", "/"+element.id, true);
-  console.log(element.id);
+ // console.log(element.id);
   xhr.send();
 }
 function fileControls(element){
   var xhr = new XMLHttpRequest();
   xhr.open("GET", "/"+element.id, true);
-  console.log(element.id);
+  //console.log(element.id);
+  xhr.send();
+}
+
+function fileSelect(element){
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "/"+element.id+"?FILENAME="+element.value, true);
+  //console.log(element.id);
+  xhr.send();
+}
+
+function MPUSelect(element){
+  var xhr = new XMLHttpRequest();
+  //xhr.open("GET", "/aRange="+element.selectedIndex, true);
+  //xhr.open("GET", "/"+element.id+"="+element.selectedIndex, true);
+  xhr.open("GET", "/"+element.id+"?PARAM1="+element.value, true);
+  //console.log(element.id);
   xhr.send();
 }
 function modeControls(element){
   var xhr = new XMLHttpRequest();
   xhr.open("GET", "/"+element.id, true);
-  console.log(element.id);
+  //console.log(element.id);
   xhr.send();
 }

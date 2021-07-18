@@ -38,7 +38,7 @@ fix needed for
 
 #define NUM_LEDS 139
 
-#define DATA_PIN 14
+#define DATA_PIN 15
 
 // This is an array of leds.  One item for each led in your strip.
 CRGB leds[NUM_LEDS];
@@ -48,7 +48,7 @@ void setup() {
 	// sanity check delay - allows reprogramming if accidently blowing power w/leds
    	delay(2000);
 
-    FastLED.addLeds<WS2811, DATA_PIN, RGB>(leds, NUM_LEDS); //right one for 139 strips
+    FastLED.addLeds<WS2811, DATA_PIN, RGB>(leds, NUM_LEDS); //right one for 144 strips
 
 }
 
