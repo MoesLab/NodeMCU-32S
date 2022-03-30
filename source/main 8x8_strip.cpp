@@ -36,78 +36,59 @@ fix needed for
 // and then how to turn a single pixel white and then off, moving down the line of pixels.
 // 
 
-#define NUM_LEDS 139
-
-#define DATA_PIN 15
+// _S for Strip on pin 14  and _M for Matrix on pin 15
+#define NUM_LEDS_S 139
+#define NUM_LEDS_M 64
+#define DATA_PIN_S 14
+#define DATA_PIN_M 15
 
 // This is an array of leds.  One item for each led in your strip.
-CRGB leds[NUM_LEDS];
-
+CRGB leds_S[NUM_LEDS_S];
+CRGB leds_M[NUM_LEDS_M];
 // This function sets up the ledsand tells the controller about them
 void setup() {
 	// sanity check delay - allows reprogramming if accidently blowing power w/leds
    	delay(2000);
 
-    FastLED.addLeds<WS2811, DATA_PIN, GRB>(leds, NUM_LEDS); //right one for 144 strips
-
+    FastLED.addLeds<WS2811, DATA_PIN_S, GRB>(leds_S, NUM_LEDS_S); // for 139 Strips
+    FastLED.addLeds<WS2811, DATA_PIN_M, GRB>(leds_M, NUM_LEDS_M); // for 8x8 = 139 Matrix
 }
 
 void loop() {
-   // Move a single white led 
-   for(int whiteLed = 0; whiteLed < NUM_LEDS; whiteLed = whiteLed + 1) {
-      leds[whiteLed] = CRGB::Red;
+   //------------------------------------------ Matrix first
+   
+     // for(int i = 1; i < NUM_LEDS_M + NUM_LEDS_S; i = i + 1) { //Combine Matrix and Strip
+     for(int i = 0; i < NUM_LEDS_M; i = i + 1) {
+      leds_M[i] = CRGB::Red;
       FastLED.show();
       delay(2);
-      leds[whiteLed] = CRGB::Black;
+      leds_M[i] = CRGB::Black;
+   }
+         FastLED.show();
+
+   //------------------------------------------ Strip second 
+   for(int whiteLed = 0; whiteLed < NUM_LEDS_S; whiteLed = whiteLed + 1) {
+      leds_S[whiteLed] = CRGB::Red;
+      FastLED.show();
+      delay(2);
+      leds_S[whiteLed] = CRGB::Black;
+   }
+   for(int i = NUM_LEDS_M - 1; i >= 0; i = i - 1) {
+      leds_M[i] = CRGB::Red;
+      FastLED.show();
+      delay(2);
+      leds_M[i] = CRGB::Black;
    }
    //return of the color
-    for(int whiteLed = NUM_LEDS; whiteLed >=-1 ; whiteLed = whiteLed - 1) {
-      leds[whiteLed] = CRGB::Red;
+    for(int whiteLed = NUM_LEDS_S - 1; whiteLed >=0 ; whiteLed = whiteLed - 1) {
+      leds_S[whiteLed] = CRGB::Red;
       FastLED.show();
       delay(2);
-      leds[whiteLed] = CRGB::Black;
+      leds_S[whiteLed] = CRGB::Black;
    }
+
+         FastLED.show();
    delay(2000);
-      for(int whiteLed = 0; whiteLed < NUM_LEDS; whiteLed = whiteLed + 1) {
-      leds[whiteLed] = CRGB::Green;
-      FastLED.show();
-      delay(2);
-      leds[whiteLed] = CRGB::Black;
-   }
-   //return of the color
-    for(int whiteLed = NUM_LEDS; whiteLed >=-1 ; whiteLed = whiteLed - 1) {
-      leds[whiteLed] = CRGB::Green;
-      FastLED.show();
-      delay(2);
-      leds[whiteLed] = CRGB::Black;
-   }
-   delay(2000);
-      for(int whiteLed = 0; whiteLed < NUM_LEDS; whiteLed = whiteLed + 1) {
-      leds[whiteLed] = CRGB::Blue;
-      FastLED.show();
-      delay(2);
-      leds[whiteLed] = CRGB::Black;
-   }
-   //return of the color
-    for(int whiteLed = NUM_LEDS; whiteLed >=-1 ; whiteLed = whiteLed - 1) {
-      leds[whiteLed] = CRGB::Blue;
-      FastLED.show();
-      delay(2);
-      leds[whiteLed] = CRGB::Black;
-   }
-   delay(2000);
-      for(int whiteLed = 0; whiteLed < NUM_LEDS; whiteLed = whiteLed + 1) {
-      leds[whiteLed] = CRGB::White;
-      FastLED.show();
-      delay(2);
-      leds[whiteLed] = CRGB::Black;
-   }
-   //return of the color
-    for(int whiteLed = NUM_LEDS; whiteLed >=-1 ; whiteLed = whiteLed - 1) {
-      leds[whiteLed] = CRGB::White;
-      FastLED.show();
-      delay(2);
-      leds[whiteLed] = CRGB::Black;
-   }
-   delay(2000);
+   //----------------------------------------------loop ends
+
 }
